@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:XFQuotesAppFP"
              x:Class="XFQuotesAppFP.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
+    <Label Text="Welcome to Xamarin Forms from XFQuotesAppFP!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
