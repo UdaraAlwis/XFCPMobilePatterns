@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Advanced Cross Platform Mobile Development</title>
+    <link rel="stylesheet" type="text/css" href="./parts/res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./parts/res/styles/prettify.css">
+    <link rel="stylesheet" type="text/css" href="./parts/res/styles/styles.css">
+</head>
+
+<body>
+    <!-- This will be filled in at runtime -->
+    <header role="course-title"></header>
+
+    <section id="main">
+
+        <h2>Before you begin</h2>
+        <p>
+            This class is a cross-platform class for Windows, iOS and Android. To complete the coding exercises, you will need a Xamarin development environment with either a simulator/emulator or a device to run the exercise on. 
+            Please read the <a href="https://university.xamarin.com/resources/setup-requirements">setup requirements</a> if you need help installing the Xamarin development environment.
+        </p>
+
+        <h2>Overview</h2>
+        <p>This session builds on the introduction class and goes deeper into architectural patterns used to abstract our dependencies which can help with cross platform development as well as unit testing your shared code.
+        </p>
+
+        <h2>Objectives</h2>
+        <ol>
+            <li>Working with Dependencies in a Loosely-Coupled fashion</li>
+        </ol>
+
+        <h2>Lecture</h2>
+        <p><a href="./parts/slides.pdf">XAM300 - Advanced Cross Platform Mobile Development</a>.</p>
+
+        <h2>Exercises</h2>
+        <ol>
+            <li>
+                <div class="objective">Using the Factory Pattern</div>
+                <a href="./parts/part1.html">Exercise</a>
+                <br />
+                Create a dependency through the Factory pattern.
+            </li>
+
+            <li>
+                <div class="objective">Build a Service Locator</div>
+                <a href="./parts/part2.html">Exercise</a>
+                <br />
+                Add an abstraction and Service Locator into our project to find and use a platform-specific feature.
+            </li>
+
+            <li>
+                <div class="objective">Using Dependency Injection</div>
+                <a href="./parts/part3.html">Exercise</a>
+                <br />
+                Switch to a DI/IoC container and inject our dependency into our code.
+            </li>
+
+        </ol>
+        <p>
+        Here are the <a target="_blank" href="https://university.xamarin.com/faq/xam300-advanced-cross-platform-development">Frequently Asked Questions</a> about Advanced Cross-Platform Development.
+        </p>
+        
+        <h2>Exploring On Your Own</h2>
+        <div class="wslist">
+            <a href="http://msdn.microsoft.com/en-us/library/ee817667.aspx">Exploring the Factory Pattern (MSDN)</a>
+            <a href="https://commonservicelocator.codeplex.com/">Common Service Locator (Microsoft P&amp;P)</a>
+            <a href="http://martinfowler.com/articles/injection.html">Inversion of Control Containers and the Dependency Injection pattern (Martin Fowler)</a>
+            <a href="http://msdn.microsoft.com/en-us/magazine/cc163739.aspx">Dependency Injection (MSDN Magazine)</a>
+            <a href="http://arteksoftware.com/ioc-containers-with-xamarin/">IoC Containers with Xamarin</a>
+        </div>
+        
+        <h2>Dependency Injection Containers</h2>
+        <p>Here are some popular implementations of DI containers you can use with Xamarin. Most of these are open source, or public source projects. Keep in mind that many MVVM libraries have built-in DI containers.</p>
+        <div class="wslist">
+            <a href="https://github.com/grumpydev/TinyIoC">Tiny.IoC</a>
+            <a href="http://autofac.org">AutoFac</a>
+            <a href="http://www.ninject.org/">Ninject</a>
+            <a href="https://ioc.codeplex.com/">OpenNETCF.IoC</a>
+            <a href="http://msdn.microsoft.com/en-us/library/ff647202.aspx">Unity (Microsoft P&amp;P)</a>
+            <a href="https://github.com/autofac/Autofac">AutoFac</a>
+        </div>
+
+    </section>
+
+    <script src="./parts/res/js/jquery.min.js"></script>
+    <script src="./parts/res/js/prettify.js"></script>
+    <script src="./parts/res/js/script.js"></script>
+
+    <footer>Copyright (C) 2017 Xamarin</footer>
+</body>
+</html>
+
