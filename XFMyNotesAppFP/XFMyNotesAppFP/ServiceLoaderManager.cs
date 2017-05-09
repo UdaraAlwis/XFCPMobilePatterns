@@ -27,5 +27,10 @@ namespace XFMyNotesAppFP
 
             MyNotes = new ObservableCollection<MyNote>(NoteLoader.Load());
         }
+
+        public void Save()
+        {
+            NoteLoader.Save(MyNotes);
+        }
     }
 }

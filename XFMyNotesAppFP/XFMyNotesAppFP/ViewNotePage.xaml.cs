@@ -26,7 +26,14 @@ namespace XFMyNotesAppFP
             var note = ServiceLoaderManager.Instance.MyNotes[_noteIndex];
             BindingContext = note;
 
-            ServiceLoaderManager.Instance.NoteReader.Speak(note.NoteText);
+            ServiceLoaderManager.Instance.NoteReader.Speak(
+                $"{note.NoteTitle} {note.NoteText}, " +
+                $"posted on {note.TimeStamp:D}, {note.TimeStamp:t}");
+        }
+
+        private void EditNoteButton_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new EditNotePage(_noteIndex));
         }
     }
 }

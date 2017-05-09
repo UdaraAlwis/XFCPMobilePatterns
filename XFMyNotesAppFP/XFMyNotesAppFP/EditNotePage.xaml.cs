@@ -12,18 +12,48 @@ namespace XFMyNotesAppFP
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditNotePage : ContentPage
     {
-        private readonly int _noteIndex;
-        public EditNotePage(int noteIndex)
+        private readonly int _noteIndex = -1;
+        public EditNotePage(int? noteIndex = null)
         {
             InitializeComponent();
-            _noteIndex = noteIndex;
+
+            if (noteIndex != null)
+            {
+                _noteIndex = noteIndex.Value;
+                SaveButton.Text = "Update";
+            }
+            else
+            {
+                SaveButton.Text = "Add";
+            }
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            BindingContext = ServiceLoaderManager.Instance.MyNotes[_noteIndex];
+            if (_noteIndex != -1)
+            {
+                BindingContext = ServiceLoaderManager.Instance.MyNotes[_noteIndex];
+            }
+            else
+            {
+                BindingContext = new MyNote();
+            }
+        }
+
+        private void SaveButton_OnClicked(object sender, EventArgs e)
+        {
+            if (_noteIndex != -1)
+            {
+                Navigation.PopAsync();
+            }
+            else
+            {
+                ((MyNote)this.BindingContext).TimeStamp = DateTime.Now;
+                ServiceLoaderManager.Instance.MyNotes.Insert(0, (MyNote)this.BindingContext);
+                Navigation.PopAsync();
+            }
         }
     }
 }

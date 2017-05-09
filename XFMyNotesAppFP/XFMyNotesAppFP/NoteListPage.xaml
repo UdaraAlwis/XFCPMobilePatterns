@@ -1,15 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:XFMyNotesAppFP"
-             x:Class="XFMyNotesAppFP.NoteListPage">
+<ContentPage
+    x:Class="XFMyNotesAppFP.NoteListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:XFMyNotesAppFP"
+    Title="My Notes">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="5,20,5,0" />
+            <On Platform="Android" Value="5,0,5,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="AddNewNoteButton"
+            Clicked="AddNewNoteButton_OnClicked"
+            Text="Add" />
+    </ContentPage.ToolbarItems>
 
     <StackLayout>
-
         <ListView x:Name="NoteListView">
-        
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Detail="{Binding NoteText}" Text="{Binding NoteTitle}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
-        
     </StackLayout>
 
 </ContentPage>

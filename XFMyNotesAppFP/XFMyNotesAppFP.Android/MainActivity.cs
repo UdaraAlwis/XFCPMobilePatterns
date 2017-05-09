@@ -26,6 +26,19 @@ namespace XFMyNotesAppFP.Droid
 
             LoadApplication(new App());
         }
+
+        public override void OnBackPressed()
+        {
+            ServiceLoaderManager.Instance.Save();
+
+            base.OnBackPressed();
+        }
+        protected override void OnPause()
+        {
+            base.OnPause();
+
+            ServiceLoaderManager.Instance.Save();
+        }
     }
 }
 
