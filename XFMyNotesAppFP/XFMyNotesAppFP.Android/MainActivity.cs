@@ -9,7 +9,7 @@ using Android.OS;
 
 namespace XFMyNotesAppFP.Droid
 {
-    [Activity(Label = "XFMyNotesAppFP", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "MyNotesFP", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -29,7 +29,7 @@ namespace XFMyNotesAppFP.Droid
 
         public override void OnBackPressed()
         {
-            ServiceLoaderManager.Instance.Save();
+            NoteManager.Instance.Save();
 
             base.OnBackPressed();
         }
@@ -37,7 +37,7 @@ namespace XFMyNotesAppFP.Droid
         {
             base.OnPause();
 
-            ServiceLoaderManager.Instance.Save();
+            NoteManager.Instance.Save();
         }
     }
 }

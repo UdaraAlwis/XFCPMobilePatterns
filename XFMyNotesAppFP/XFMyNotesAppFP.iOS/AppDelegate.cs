@@ -42,7 +42,7 @@ namespace XFMyNotesAppFP.iOS
             try
             {
                 await Task.Run(() => {
-                    ServiceLoaderManager.Instance.Save();
+                    NoteManager.Instance.Save();
                 }, cts.Token);
             }
             catch (Exception ex)

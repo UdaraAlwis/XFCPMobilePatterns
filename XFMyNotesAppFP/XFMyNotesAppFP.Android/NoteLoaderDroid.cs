@@ -73,13 +73,13 @@ namespace XFMyNotesAppFP.Droid
 
             doc.Save(filename);
         }
-        
+
         #region Internal Data
         static string DefaultData =
             @"<?xml version=""1.0"" encoding=""UTF-8""?>
             <notes>
-	            <note title=""Flying Monkeys"" timestamp=""5/8/2017 10:31:13 AM"">Great minds discuss ideas; average minds discuss events; small minds discuss people.</note>
-	            <note title=""Banana Forest"" timestamp=""3/8/2017 10:31:13 AM"">Some are born great, some achieve greatness, and some have greatness thrust upon them.</note>
+	            <note title=""Flying Monkeys"" timestamp=""5/8/2017 10:31:13 AM"">What if Monkeys could fly? that would be the most awesome thing ever!</note>
+	            <note title=""Banana Forest"" timestamp=""3/8/2017 10:31:13 AM"">I like bananas. They're the best! Ok I need some babana right now.</note>
             </notes>";
         #endregion
     }

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace XFMyNotesAppFP
+namespace XFMyNotesAppSL
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NoteListPage : ContentPage
     {
         public NoteListPage()

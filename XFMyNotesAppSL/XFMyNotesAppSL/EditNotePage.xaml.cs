@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XFMyNotesAppFP
+namespace XFMyNotesAppSL
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditNotePage : ContentPage

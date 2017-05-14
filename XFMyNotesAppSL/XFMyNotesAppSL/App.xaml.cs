@@ -13,7 +13,7 @@ namespace XFMyNotesAppSL
         {
             InitializeComponent();
 
-            MainPage = new XFMyNotesAppSL.MainPage();
+            MainPage = new NavigationPage(new XFMyNotesAppSL.NoteListPage());
         }
 
         protected override void OnStart()

@@ -1,28 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Xml.Linq;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace XFMyNotesAppFP.iOS
+namespace XFMyNotesAppFP.UWP
 {
-    public class NoteLoaderIos : INoteLoader
+    public class NoteLoaderUwp : INoteLoader
     {
         const string FileName = "notes.xml";
-
         public IEnumerable<MyNote> Load()
         {
             XDocument doc = null;
 
-            string filename = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                "..", "Library", FileName);
+            string path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+            string filename = Path.Combine(path, FileName);
 
             if (File.Exists(filename))
             {
                 try
                 {
-                    doc = XDocument.Load(filename);
+                    using (var fs = File.OpenRead(filename))
+                    {
+                        doc = XDocument.Load(fs);
+                    }
                 }
                 catch
                 {
@@ -46,9 +49,8 @@ namespace XFMyNotesAppFP.iOS
 
         public void Save(IEnumerable<MyNote> notes)
         {
-            string filename = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                "..", "Library", FileName);
+            string path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+            string filename = Path.Combine(path, FileName);
 
             if (File.Exists(filename))
                 File.Delete(filename);
@@ -63,7 +65,10 @@ namespace XFMyNotesAppFP.iOS
                             Value = q.NoteText
                         })));
 
-            doc.Save(filename);
+            using (var fs = File.OpenWrite(filename))
+            {
+                doc.Save(fs);
+            }
         }
 
         #region Internal Data

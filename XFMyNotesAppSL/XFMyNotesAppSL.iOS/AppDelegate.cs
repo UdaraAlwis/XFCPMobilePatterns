@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-
+using System.Threading;
+using System.Threading.Tasks;
 using Foundation;
 using UIKit;
 
@@ -25,7 +27,32 @@ namespace XFMyNotesAppSL.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+            ServiceLocator.Instance.Add<INoteLoader, NoteLoaderIos>();
+            ServiceLocator.Instance.Add<INoteReader, NoteReaderIos>();
+
             return base.FinishedLaunching(app, options);
+        }
+
+        public override async void DidEnterBackground(UIApplication application)
+        {
+            CancellationTokenSource cts = new CancellationTokenSource();
+
+            var taskId = UIApplication.SharedApplication.BeginBackgroundTask(() => cts.Cancel());
+
+            try
+            {
+                await Task.Run(() => {
+                    NoteManager.Instance.Save();
+                }, cts.Token);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                UIApplication.SharedApplication.EndBackgroundTask(taskId);
+            }
         }
     }
 }

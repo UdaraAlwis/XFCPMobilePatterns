@@ -4,7 +4,7 @@ using System.IO;
 using System.Xml.Linq;
 using System.Linq;
 
-namespace XFMyNotesAppFP.iOS
+namespace XFMyNotesAppSL.iOS
 {
     public class NoteLoaderIos : INoteLoader
     {

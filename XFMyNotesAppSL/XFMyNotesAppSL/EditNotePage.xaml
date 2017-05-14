@@ -1,28 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="XFMyNotesAppFP.ViewNotePage"
+    x:Class="XFMyNotesAppSL.EditNotePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="View Note">
+    Title="Edit Note">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="10,20,10,0" />
-            <On Platform="Android" Value="10,5,10,0" />
+            <On Platform="Android" Value="10,0,10,0" />
         </OnPlatform>
     </ContentPage.Padding>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem
-            x:Name="EditNoteButton"
-            Clicked="EditNoteButton_OnClicked"
-            Text="Edit" />
-    </ContentPage.ToolbarItems>
-
     <StackLayout>
-        <Label
+        <Entry
             FontAttributes="Bold"
             FontSize="15"
             Text="{Binding NoteTitle}" />
-        <Label FontSize="20" Text="{Binding NoteText}" />
+        <Editor
+            FontSize="20"
+            HeightRequest="200"
+            Text="{Binding NoteText}" />
         <Label Text="{Binding TimeStamp, StringFormat='{}{0:dddd dd MMMM yyyy a\\t h:mm tt}'}" />
+
+        <Button
+            x:Name="SaveButton"
+            Clicked="SaveButton_OnClicked"
+            Text="Save" />
     </StackLayout>
 </ContentPage>

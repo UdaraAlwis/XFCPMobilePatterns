@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Xml.Linq;
 using System.Linq;
+using System.Text;
+using System.Xml.Linq;
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Environment = System.Environment;
 
-namespace XFMyNotesAppFP.iOS
+namespace XFMyNotesAppSL.Droid
 {
-    public class NoteLoaderIos : INoteLoader
+    public class NoteLoaderDroid : INoteLoader
     {
         const string FileName = "notes.xml";
 
@@ -16,7 +24,7 @@ namespace XFMyNotesAppFP.iOS
 
             string filename = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                "..", "Library", FileName);
+                FileName);
 
             if (File.Exists(filename))
             {
@@ -48,7 +56,7 @@ namespace XFMyNotesAppFP.iOS
         {
             string filename = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                "..", "Library", FileName);
+                FileName);
 
             if (File.Exists(filename))
                 File.Delete(filename);
@@ -59,9 +67,9 @@ namespace XFMyNotesAppFP.iOS
                         new XElement("note",
                             new XAttribute("title", q.NoteTitle),
                             new XAttribute("timestamp", q.TimeStamp))
-                        {
-                            Value = q.NoteText
-                        })));
+                            {
+                                Value = q.NoteText
+                            })));
 
             doc.Save(filename);
         }

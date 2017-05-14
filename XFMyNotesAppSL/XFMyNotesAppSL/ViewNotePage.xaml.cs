@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XFMyNotesAppFP
+namespace XFMyNotesAppSL
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ViewNotePage : ContentPage
@@ -26,7 +26,7 @@ namespace XFMyNotesAppFP
             var note = NoteManager.Instance.MyNotes[_noteIndex];
             BindingContext = note;
 
-            NoteManager.Instance.NoteReader.Speak(
+            ServiceLocator.Instance.Resolve<INoteReader>().Speak(
                 $"{note.NoteTitle} {note.NoteText}, " +
                 $"posted on {note.TimeStamp:D}, {note.TimeStamp:t}");
         }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XFMyNotesAppDI", "XFMyNotesAppDI", "{003BF2DF-2545-4E96-9063-B592B1CADEF6}"
 EndProject
@@ -430,6 +430,8 @@ Global
 		{49A5580A-0072-4FFD-B6D4-586555B6B1E3}.AppStore|x86.Build.0 = Release|x86
 		{49A5580A-0072-4FFD-B6D4-586555B6B1E3}.AppStore|x86.Deploy.0 = Release|x86
 		{49A5580A-0072-4FFD-B6D4-586555B6B1E3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{49A5580A-0072-4FFD-B6D4-586555B6B1E3}.Debug|Any CPU.Build.0 = Debug|x86
+		{49A5580A-0072-4FFD-B6D4-586555B6B1E3}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{49A5580A-0072-4FFD-B6D4-586555B6B1E3}.Debug|ARM.ActiveCfg = Debug|ARM
 		{49A5580A-0072-4FFD-B6D4-586555B6B1E3}.Debug|ARM.Build.0 = Debug|ARM
 		{49A5580A-0072-4FFD-B6D4-586555B6B1E3}.Debug|ARM.Deploy.0 = Debug|ARM

@@ -48,7 +48,7 @@
       <DependentUpon>NoteListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ServiceLoaderFactory.cs" />
-    <Compile Include="ServiceLoaderManager.cs" />
+    <Compile Include="NoteManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewNotePage.xaml.cs">
       <DependentUpon>ViewNotePage.xaml</DependentUpon>
