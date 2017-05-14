@@ -28,6 +28,9 @@ namespace XFMyNotesAppSL.UWP
         /// </summary>
         public App()
         {
+            ServiceLocator.Instance.Add<INoteLoader, NoteLoaderUwp>();
+            ServiceLocator.Instance.Add<INoteReader, NoteReaderUwp>();
+
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
