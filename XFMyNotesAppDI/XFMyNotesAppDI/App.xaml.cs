@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Microsoft.Practices.Unity;
 using Xamarin.Forms;
 
 namespace XFMyNotesAppDI
 {
     public partial class App : Application
     {
+        public static UnityContainer Container { get; set; }
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new XFMyNotesAppDI.MainPage();
+            Container.RegisterInstance(typeof(NoteManager), nameof(NoteManager));
+
+            MainPage = new NavigationPage(new XFMyNotesAppDI.NoteListPage());
         }
 
         protected override void OnStart()

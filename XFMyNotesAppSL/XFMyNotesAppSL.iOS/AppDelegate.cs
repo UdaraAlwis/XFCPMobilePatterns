@@ -25,10 +25,11 @@ namespace XFMyNotesAppSL.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
 
             ServiceLocator.Instance.Add<INoteLoader, NoteLoaderIos>();
             ServiceLocator.Instance.Add<INoteReader, NoteReaderIos>();
+
+            LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }

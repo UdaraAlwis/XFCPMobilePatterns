@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Microsoft.Practices.Unity;
 using UIKit;
 
 namespace XFMyNotesAppDI.iOS
@@ -23,6 +24,11 @@ namespace XFMyNotesAppDI.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            App.Container = new UnityContainer();
+            App.Container.RegisterType<INoteLoader, NoteLoaderIos>();
+            App.Container.RegisterType<INoteReader, NoteReaderIos>();
+            
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.Practices.Unity;
 
 namespace XFMyNotesAppDI.Droid
 {
@@ -20,6 +21,11 @@ namespace XFMyNotesAppDI.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            
+            App.Container = new UnityContainer();
+            App.Container.RegisterType<INoteLoader, NoteLoaderDroid>();
+            App.Container.RegisterType<INoteReader, NoteReaderDroid>();
+
             LoadApplication(new App());
         }
     }

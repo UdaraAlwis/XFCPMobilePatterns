@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace XFMyNotesAppDI
 {
-    public partial class MainPage : ContentPage
+    public interface INoteReader
     {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+        void Speak(string text);
     }
 }

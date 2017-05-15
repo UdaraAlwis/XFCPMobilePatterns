@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Practices.Unity;
 
 namespace XFMyNotesAppDI.UWP
 {
@@ -28,6 +29,10 @@ namespace XFMyNotesAppDI.UWP
         /// </summary>
         public App()
         {
+            XFMyNotesAppDI.App.Container = new UnityContainer();
+            XFMyNotesAppDI.App.Container.RegisterType<INoteLoader, NoteLoaderUwp>();
+            XFMyNotesAppDI.App.Container.RegisterType<INoteReader, NoteReaderUwp>();
+
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
