@@ -19,7 +19,7 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <Label Text="My Notes App based on Service Locator">
+        <Label FontAttributes="Bold" Text="My Notes App - Service Locator">
             <Label.Margin>
                 <OnPlatform x:TypeArguments="Thickness">
                     <On Platform="iOS" Value="5,0,0,0" />
