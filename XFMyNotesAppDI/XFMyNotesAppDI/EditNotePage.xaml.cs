@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Microsoft.Practices.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +16,8 @@ namespace XFMyNotesAppDI
         private readonly int _noteIndex = -1;
         public EditNotePage(int? noteIndex = null)
         {
+            _noteManager = App.Container.Resolve<NoteManager>();
+
             InitializeComponent();
 
             if (noteIndex != null)

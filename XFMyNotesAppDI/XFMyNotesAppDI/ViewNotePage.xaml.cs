@@ -16,10 +16,10 @@ namespace XFMyNotesAppDI
         private readonly int _noteIndex;
         public ViewNotePage(int noteIndex)
         {
+            _noteManager = App.Container.Resolve<NoteManager>();
+
             InitializeComponent();
             _noteIndex = noteIndex;
-
-            _noteManager = App.Container.Resolve<NoteManager>();
         }
 
         protected override void OnAppearing()

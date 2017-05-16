@@ -14,10 +14,10 @@ namespace XFMyNotesAppDI
 
         public NoteListPage()
         {
+            _noteManager = App.Container.Resolve<NoteManager>();
+
             InitializeComponent();
             NoteListView.ItemSelected += NoteListViewOnItemSelected;
-            
-            _noteManager = App.Container.Resolve<NoteManager>();
         }
 
         protected override void OnAppearing()
