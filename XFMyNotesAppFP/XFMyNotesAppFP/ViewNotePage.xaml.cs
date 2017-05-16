@@ -27,7 +27,7 @@ namespace XFMyNotesAppFP
             BindingContext = note;
 
             NoteManager.Instance.NoteReader.Speak(
-                $"{note.NoteTitle} {note.NoteText}, " +
+                $"{note.NoteTitle}, {note.NoteText}, " +
                 $"posted on {note.TimeStamp:D}, {note.TimeStamp:t}");
         }
 

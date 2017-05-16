@@ -15,8 +15,8 @@ namespace XFMyNotesAppDI
         {
             InitializeComponent();
 
-            Container.RegisterInstance(typeof(NoteManager), nameof(NoteManager));
-
+            App.Container.RegisterType<NoteManager>(new ContainerControlledLifetimeManager());
+           
             MainPage = new NavigationPage(new XFMyNotesAppDI.NoteListPage());
         }
 

@@ -28,7 +28,7 @@ namespace XFMyNotesAppDI.iOS
             App.Container = new UnityContainer();
             App.Container.RegisterType<INoteLoader, NoteLoaderIos>();
             App.Container.RegisterType<INoteReader, NoteReaderIos>();
-            
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

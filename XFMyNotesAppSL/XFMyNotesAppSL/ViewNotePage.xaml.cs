@@ -27,7 +27,7 @@ namespace XFMyNotesAppSL
             BindingContext = note;
 
             ServiceLocator.Instance.Resolve<INoteReader>().Speak(
-                $"{note.NoteTitle} {note.NoteText}, " +
+                $"{note.NoteTitle}, {note.NoteText}, " +
                 $"posted on {note.TimeStamp:D}, {note.TimeStamp:t}");
         }
 

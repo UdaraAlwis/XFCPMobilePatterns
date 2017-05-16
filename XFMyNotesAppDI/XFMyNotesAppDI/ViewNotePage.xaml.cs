@@ -12,26 +12,27 @@ namespace XFMyNotesAppDI
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ViewNotePage : ContentPage
     {
+        private NoteManager _noteManager;
         private readonly int _noteIndex;
         public ViewNotePage(int noteIndex)
         {
             InitializeComponent();
             _noteIndex = noteIndex;
+
+            _noteManager = App.Container.Resolve<NoteManager>();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             
-            NoteManager viewModel = App.Container.Resolve(typeof(NoteManager), nameof(NoteManager)) as NoteManager;
-            
-            var note = viewModel.MyNotes[_noteIndex];
+            var note = _noteManager.MyNotes[_noteIndex];
             BindingContext = note;
 
-            var notereader = App.Container.Resolve(typeof(INoteReader), nameof(INoteReader)) as INoteReader;
+            var notereader = App.Container.Resolve<INoteReader>();
 
             notereader.Speak(
-                $"{note.NoteTitle} {note.NoteText}, " +
+                $"{note.NoteTitle}, {note.NoteText}, " +
                 $"posted on {note.TimeStamp:D}, {note.TimeStamp:t}");
         }
 
