@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace XFMyNotesAppFP
 {
-    public static class ServiceLoaderFactory
+    public static class ServiceLoaderFactory<T>
     {
-        public static Func<INoteLoader> CreateNoteLoader { get; set; }
-        
-        public static Func<INoteReader> CreateNoteReader { get; set; }
+        public static Func<T> CreateService { get; set; }
     }
 }

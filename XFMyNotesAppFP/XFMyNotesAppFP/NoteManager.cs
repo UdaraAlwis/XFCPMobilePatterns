@@ -22,8 +22,8 @@ namespace XFMyNotesAppFP
 
         private NoteManager()
         {
-            NoteLoader = ServiceLoaderFactory.CreateNoteLoader();
-            NoteReader = ServiceLoaderFactory.CreateNoteReader();
+            NoteLoader = ServiceLoaderFactory<INoteLoader>.CreateService();
+            NoteReader = ServiceLoaderFactory<INoteReader>.CreateService();
 
             MyNotes = new ObservableCollection<MyNote>(NoteLoader.Load());
         }

@@ -27,8 +27,8 @@ namespace XFMyNotesAppFP.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
-            ServiceLoaderFactory.CreateNoteLoader = () => new NoteLoaderIos();
-            ServiceLoaderFactory.CreateNoteReader = () => new NoteReaderIos();
+            ServiceLoaderFactory<INoteLoader>.CreateService = () => new NoteLoaderIos();
+            ServiceLoaderFactory<INoteReader>.CreateService = () => new NoteReaderIos();
 
             return base.FinishedLaunching(app, options);
         }
