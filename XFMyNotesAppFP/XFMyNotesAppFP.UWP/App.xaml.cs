@@ -28,8 +28,8 @@ namespace XFMyNotesAppFP.UWP
         /// </summary>
         public App()
         {
-            ServiceLoaderFactory.CreateNoteLoader = () => new NoteLoaderUwp();
-            ServiceLoaderFactory.CreateNoteReader = () => new NoteReaderUwp();
+            ServiceLoaderFactory<INoteLoader>.CreateService = () => new NoteLoaderUwp();
+            ServiceLoaderFactory<INoteReader>.CreateService = () => new NoteReaderUwp();
 
             this.InitializeComponent();
             this.Suspending += OnSuspending;

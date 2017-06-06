@@ -9,6 +9,7 @@ namespace XFMyNotesAppFP
 {
     public class NoteManager
     {
+        // make a singleton access point
         private static readonly NoteManager _instance = new NoteManager();
         public static NoteManager Instance { get { return _instance; } }
 

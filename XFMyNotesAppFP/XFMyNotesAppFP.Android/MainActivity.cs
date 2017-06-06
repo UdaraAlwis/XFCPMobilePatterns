@@ -21,8 +21,8 @@ namespace XFMyNotesAppFP.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            ServiceLoaderFactory.CreateNoteLoader = () => new NoteLoaderDroid();
-            ServiceLoaderFactory.CreateNoteReader = () => new NoteReaderDroid();
+            ServiceLoaderFactory<INoteLoader>.CreateService = () => new NoteLoaderDroid();
+            ServiceLoaderFactory<INoteReader>.CreateService = () => new NoteReaderDroid();
 
             LoadApplication(new App());
         }
