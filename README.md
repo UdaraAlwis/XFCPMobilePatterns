@@ -12,3 +12,5 @@ XFMyNotesAppFP - Factory Pattern
 XFMyNotesAppSL - Service Locator Pattern
 
 XFMyNotesAppDI - Dependency Injection with IoC
+
+Read the full blogpost: https://theconfuzedsourcecode.wordpress.com/2017/06/13/xamarin-forms-cross-platform-architectural-implementation-patterns/
